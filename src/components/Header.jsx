@@ -77,26 +77,15 @@ export default function Header() {
               <div className="header_mainmenu display_table_cell">
                 <nav className="mainmenu_wrapper">
                   <ul className="mainmenu nav sf-menu">
-                    <li className="">
-                      <Link route="index">
-                        <a>HOME</a>
-                      </Link>
-                    </li>
-                    <li className="">
-                      <Link route="category" params={{ slug: 'nutrition' }}>
-                        <a>NUTRITION</a>
-                      </Link>
-                    </li>
-                    <li className="">
-                      <Link route="category" params={{ slug: 'tips-and-care' }}>
-                        <a>TIPS & CARE</a>
-                      </Link>
-                    </li>
-                    <li className="">
-                      <Link route="category" params={{ slug: 'reviews' }}>
-                        <a>REVIEWS</a>
-                      </Link>
-                    </li>
+                    {
+                      config.mainMenuLinks.map(link => (
+                        <li key={ link.route }>
+                          <Link route={ link.route }>
+                            <a className="text-uppercase">{ link.title }</a>
+                          </Link>
+                        </li>
+                      ))
+                    }
                   </ul>
                 </nav>
                 <span className="toggle_menu">

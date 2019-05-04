@@ -76,7 +76,7 @@ class Index extends React.Component {
             </div>
             <div className="row">
               <div className="col-sm-12 text-center">
-                <Link route="about">
+                <Link route="page" params={{ slug: 'about-us' }}>
                   <a className="theme_button color4 wide_button">About Us</a>
                 </Link>
               </div>

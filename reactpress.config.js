@@ -8,24 +8,39 @@ module.exports = {
   mainMenuLinks: [
     {
       title: "Home",
-      href:  "/",
+      slug:  "",
       route: "/"
+    },
+    {
+      title: "Nutrition",
+      slug:  "nutrition",
+      route: "/category/nutrition"
+    },
+    {
+      title: "Tips & Care",
+      slug:  "tips-and-care",
+      route: "/category/tips-and-care"
+    },
+    {
+      title: "Reviews",
+      slug:  "review",
+      route: "/category/reviews"
     }
   ],
   subMenuLinks: [
     {
       title: "About Us",
-      href:  "/page?slug=about-us",
+      slug:  "about-us",
       route: "/page/about-us"
     },
     {
       title: "Contact Us",
-      href:  "/page?slug=contact-us",
+      slug:  "contact-us",
       route: "/page/contact-us"
     },
     {
       title: "Privacy Policy",
-      href:  "/page?slug=privacy-policy",
+      slug:  "privacy-policy",
       route: "/page/privacy-policy"
     }
   ],
