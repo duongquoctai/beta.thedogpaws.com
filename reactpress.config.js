@@ -2,8 +2,8 @@ module.exports = {
   // used by ./services/wpapi to create api url
   wordpressApiUrl: "https://thedogpaws.com/wp-json",
   siteInformations: {
-    name: "ReactPress",
-    slogan: "Create a SEO-friendly React front-end in minutes for your Wordpress API."
+    name: "TheDogPaws.com",
+    slogan: ""
   },
   mainMenuLinks: [
     {

@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { Link } from '../routes'
 import { connect } from 'react-redux'
 import wpapi from '../services/wpapi'
@@ -10,7 +11,7 @@ class Post extends React.Component {
     const recentPosts = await wpapi
       .posts()
       .page(1)
-      .perPage(5)
+      .perPage(3)
 
     const posts = await wpapi
       .posts()
@@ -91,7 +92,7 @@ function Body(props) {
                             </h4>
                             <span className="entry-date highlight3 small-text">
                             <time className="entry-date" dateTime={ post.date }>
-                              March 12, 2017
+                              { moment().from(post.date) }
                             </time>
                             </span>
                           </div>
