@@ -1,10 +1,13 @@
 const webpack = require('webpack')
-const withImages = require('next-images')
-const withCSS    = require('@zeit/next-css')
-const withSass   = require('@zeit/next-sass')
+const withImages = require("next-images")
+const withCSS = require('@zeit/next-css')
+const withSass = require('@zeit/next-sass')
+const withPlugins = require("next-compose-plugins")
+const withReactPress = require("./plugins/reactpress")
 
-module.exports = withCSS(withSass({
-  webpack (config, options) {
+const nextConfig = {
+  distDir: 'build',
+  webpack: (config, options) => {
     config.module.rules.push({
       test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
       use: {
@@ -17,4 +20,13 @@ module.exports = withCSS(withSass({
 
     return config
   }
-}))
+}
+
+module.exports = withPlugins(
+  [
+    withCSS,
+    withSass,
+    withReactPress
+  ],
+  nextConfig
+)

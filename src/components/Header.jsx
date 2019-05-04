@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from '../../routes'
+import config from '../../services/publicConfig'
 
 import '../assets/css/main.css'
 import '../assets/css/fonts.css'
@@ -13,15 +14,13 @@ export default function Header() {
           <div className="row">
             <div className="col-sm-8 text-center text-sm-left">
               <p className="divided-content greylinks">
-                <Link route="about">
-                  <a>About Us</a>
-                </Link>
-                <Link route="contact">
-                  <a>Contact Us</a>
-                </Link>
-                <Link route="privacy_policy">
-                  <a>Privacy Policy</a>
-                </Link>
+                {
+                  config.subMenuLinks.map(link => (
+                    <Link key={ link.route } route={ link.route }>
+                      <a>{ link.title }</a>
+                    </Link>
+                  ))
+                }
               </p>
             </div>
             <div className="col-sm-4 text-center text-sm-right">

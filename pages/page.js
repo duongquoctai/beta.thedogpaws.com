@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import wpapi from '../services/wpapi'
 import Main from '../src/components/Main'
 
-class About extends React.Component {
-  static async getInitialProps (props) {
-    const { store, isServer } = props.ctx
+class Page extends React.Component {
+  static async getInitialProps ({ ctx }) {
+    const pages = await wpapi
+      .pages()
+      .slug(ctx.query.slug)
 
-    const res     = await fetch(`${ isServer ? "https://thedogpaws.com" : "" }/wp-json/wp/v2/pages?slug=about-us`)
-    const pages   = await res.json()
-
-    return { isServer, pageContent: pages[0] }
+    return { pageContent: pages[0] }
   }
 
   render () {
@@ -58,4 +58,4 @@ function Body(props) {
   )
 }
 
-export default connect()(About)
+export default connect()(Page)

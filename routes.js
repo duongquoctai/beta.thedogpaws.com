@@ -1,9 +1,7 @@
-const routes = require( 'next-routes' );
+const routes = require( 'next-routes' )
 
 module.exports = routes()
-  .add( 'index',            '/' )
-  .add( 'about',            '/about-us' )
-  .add( 'contact',          '/contact-us' )
-  .add( 'privacy_policy',   '/privacy-policy' )
-  .add( 'category',         '/category/:slug' )
-  .add( 'single',           '/:slug' )
+  .add( 'index',    '/' )
+  .add( 'post',     '/:slug' )
+  .add( 'category', '/category/:slug' )
+  .add( 'page',     '/page/:slug' )

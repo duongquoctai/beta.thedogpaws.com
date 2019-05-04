@@ -1,31 +1,31 @@
 import React from 'react'
 import { Link } from '../routes'
 import { connect } from 'react-redux'
+import wpapi from '../services/wpapi'
 import Main from '../src/components/Main'
+import Pagination from '../src/components/ui/Pagination'
 
 class Category extends React.Component {
-  static async getInitialProps (props) {
-    const { query, store, isServer } = props.ctx
+  static async getInitialProps ({ ctx }) {
+    const currentPage = ctx.query.page ? ctx.query.page : 1
 
-    const resCategories = await fetch(`${ isServer ? "https://thedogpaws.com" : "" }/wp-json/wp/v2/categories?slug=${ query.slug }`)
-    const categories = await resCategories.json()
+    const categories = await wpapi
+      .categories()
+      .slug(ctx.query.slug)
 
-    const page = query.page ? parseInt(query.page, 10) : 1
-    const resPosts = await fetch(`${ isServer ? "https://thedogpaws.com" : "" }/wp-json/wp/v2/posts?categories=${ categories[0].id }&page=${ page }&per_page=12`)
-    const totalPages = resPosts.headers.get('x-wp-totalpages')[0]
-    const posts = await resPosts.json()
+    const category = categories[0];
 
-    return {
-      isServer,
-      page,
-      posts,
-      category_name: categories[0].name,
-      totalPages: totalPages ? parseInt(totalPages, 10) : 0
-    }
+    const posts = await wpapi
+      .posts()
+      .categories(category.id)
+      .page(currentPage)
+      .perPage(10)
+
+    return { category, posts, paging: posts._paging };
   }
 
   render () {
-    const { page, posts, category_name, totalPages } = this.props
+    const { category, posts } = this.props
 
     return(
       <div>
@@ -35,7 +35,7 @@ class Category extends React.Component {
               <div className="col-sm-12 text-center">
                 <h2
                   className="highlight text-uppercase"
-                  dangerouslySetInnerHTML={{ __html: category_name }} />
+                  dangerouslySetInnerHTML={{ __html: category.name }} />
               </div>
             </div>
           </div>
@@ -82,25 +82,7 @@ class Category extends React.Component {
               <div className="col-sm-12 text-center">
                 <ul className="pagination highlightlinks">
                   <li>
-                    <a
-                      className={ page <= 1 ? "disabled" : "" }
-                      onClick={() => Router.push(`/?page=${ page - 1 }`)}
-                    >
-                      <span className="sr-only">Prev</span>
-                      <i className="fa fa-angle-left" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="disabled"> { page } </a>
-                  </li>
-                  <li>
-                    <a
-                      className={ page >= totalPages ? "disabled" : "" }
-                      onClick={() => Router.push(`/?page=${ page + 1 }`)}
-                    >
-                      <span className="sr-only">Next</span>
-                      <i className="fa fa-angle-right" aria-hidden="true"></i>
-                    </a>
+                    <Pagination totalPages={ this.props.paging.totalPages } />
                   </li>
                 </ul>
               </div>

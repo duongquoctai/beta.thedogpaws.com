@@ -1,0 +1,14 @@
+.pagination .number {
+  padding: 0.5rem 0.8rem;
+  margin-right: 1rem;
+  border: solid silver 1px;
+  cursor: pointer;
+}
+
+.pagination .number:hover {
+  background: rgb(245, 245, 245);
+}
+
+.pagination .number.active {
+  background: rgb(245, 245, 245);
+}

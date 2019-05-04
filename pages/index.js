@@ -2,27 +2,24 @@ import React from 'react'
 import Router from 'next/router'
 import { Link } from '../routes'
 import { connect } from 'react-redux'
+import wpapi from '../services/wpapi'
 import Main from '../src/components/Main'
+import Pagination from '../src/components/ui/Pagination'
 
 class Index extends React.Component {
-  static async getInitialProps (props) {
-    const { query, store, isServer } = props.ctx
+  static async getInitialProps ({ ctx }) {
+    const currentPage = ctx.query.page ? ctx.query.page : 1
 
-    const page = query.page ? parseInt(query.page, 10) : 1
-    const res = await fetch(`${ isServer ? "https://thedogpaws.com" : "" }/wp-json/wp/v2/posts?page=${ page }&per_page=12`)
-    const totalPages = res.headers.get('x-wp-totalpages')[0]
-    const posts = await res.json()
+    const posts = await wpapi
+      .posts()
+      .page(currentPage)
+      .perPage(12)
 
-    return {
-      isServer,
-      page,
-      posts,
-      totalPages: totalPages ? parseInt(totalPages, 10) : 0
-    }
+    return { posts, paging: posts._paging }
   }
 
   render () {
-    const { page, posts, totalPages } = this.props
+    const { posts, totalPages } = this.props
 
     return(
       <div>
@@ -136,25 +133,7 @@ class Index extends React.Component {
               <div className="col-sm-12 text-center">
                 <ul className="pagination highlightlinks">
                   <li>
-                    <a
-                      className={ page <= 1 ? "disabled" : "" }
-                      onClick={() => Router.push(`/?page=${ page - 1 }`)}
-                    >
-                      <span className="sr-only">Prev</span>
-                      <i className="fa fa-angle-left" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="disabled"> { page } </a>
-                  </li>
-                  <li>
-                    <a
-                      className={ page >= totalPages ? "disabled" : "" }
-                      onClick={() => Router.push(`/?page=${ page + 1 }`)}
-                    >
-                      <span className="sr-only">Next</span>
-                      <i className="fa fa-angle-right" aria-hidden="true"></i>
-                    </a>
+                    <Pagination totalPages={ this.props.paging.totalPages } />
                   </li>
                 </ul>
               </div>

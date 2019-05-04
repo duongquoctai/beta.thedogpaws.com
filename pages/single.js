@@ -1,20 +1,22 @@
 import React from 'react'
 import { Link } from '../routes'
 import { connect } from 'react-redux'
+import wpapi from '../services/wpapi'
 import ReactDisqusComments from 'react-disqus-comments'
 import Main from '../src/components/Main'
 
 class Single extends React.Component {
-  static async getInitialProps (props) {
-    const { query, store, isServer } = props.ctx
+  static async getInitialProps ({ ctx }) {
+    const recentPosts = await wpapi
+      .posts()
+      .page(1)
+      .perPage(5)
 
-    const resPosts = await fetch(`${ isServer ? "https://thedogpaws.com" : "" }/wp-json/wp/v2/posts?slug=${ query.slug }`)
-    const posts = await resPosts.json()
-    
-    const resRecentPosts = await fetch(`${ isServer ? "https://thedogpaws.com" : "" }/wp-json/wp/v2/posts?page=1&per_page=5`)
-    const recentPosts = await resRecentPosts.json()
+    const posts = await wpapi
+      .posts()
+      .slug(ctx.query.slug)
 
-    return { isServer, recentPosts, post: posts[0] }
+    return { recentPosts, post: posts[0] }
   }
 
   render () {
