@@ -14397,7 +14397,8 @@ a.color-icon.border-icon:hover {
 }
 
 .su-button {
-  padding: 8px 0;
+  padding: 15px 0;
+  font-family: Ubuntu;
   border-radius: 44px !important;
 }
 

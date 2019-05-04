@@ -5,7 +5,7 @@ import wpapi from '../services/wpapi'
 import ReactDisqusComments from 'react-disqus-comments'
 import Main from '../src/components/Main'
 
-class Single extends React.Component {
+class Post extends React.Component {
   static async getInitialProps ({ ctx }) {
     const recentPosts = await wpapi
       .posts()
@@ -85,7 +85,7 @@ function Body(props) {
                           </div>
                           <div className="media-body media-middle">
                             <h4>
-                              <Link route="single" params={{ slug: post.slug }}>
+                              <Link route="post" params={{ slug: post.slug }}>
                                 <a dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                               </Link>
                             </h4>
@@ -124,4 +124,4 @@ const mapStateToProps = state => ({
   error: state.error
 })
 
-export default connect()(Single)
+export default connect()(Post)

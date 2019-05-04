@@ -61,12 +61,12 @@ class Category extends React.Component {
                                 </span>
                               </p>
                               <h4 className="entry-title">
-                                <Link route="single" params={{ slug: post.slug }}>
+                                <Link route="post" params={{ slug: post.slug }}>
                                   <a dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                                 </Link>
                               </h4>
                               <div className="margin_0" dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
-                              <Link route="single" params={{ slug: post.slug }}>
+                              <Link route="post" params={{ slug: post.slug }}>
                                 <a className="read-more"></a>
                               </Link>
                             </div>
