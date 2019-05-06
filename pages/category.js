@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from '../routes'
 import { connect } from 'react-redux'
+
 import wpapi from '../services/wpapi'
+
 import Main from '../src/components/Main'
 import Pagination from '../src/components/ui/Pagination'
 
@@ -78,15 +80,18 @@ class Category extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="row topmargin_60">
-              <div className="col-sm-12 text-center">
-                <ul className="pagination highlightlinks">
-                  <li>
-                    <Pagination totalPages={ this.props.paging.totalPages } />
-                  </li>
-                </ul>
-              </div>
-            </div>
+            { this.props.paging === undefined
+              ? null
+              : <div className="row topmargin_60">
+                  <div className="col-sm-12 text-center">
+                    <ul className="pagination highlightlinks">
+                      <li>
+                        <Pagination totalPages={ this.props.paging.totalPages } />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            }
           </div>
         </section>
       </div>

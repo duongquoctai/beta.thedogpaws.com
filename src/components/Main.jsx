@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { connect } from 'react-redux'
 
 function Main(props) {

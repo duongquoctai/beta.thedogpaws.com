@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from '../../routes'
 import config from '../../services/publicConfig'
 
-import '../assets/css/main.css'
-import '../assets/css/fonts.css'
-import '../assets/css/animations.css'
+import '../../static/css/main.css'
+import '../../static/css/fonts.css'
+import '../../static/css/animations.css'
 
 export default function Header() {
   return (
@@ -25,11 +25,11 @@ export default function Header() {
             </div>
             <div className="col-sm-4 text-center text-sm-right">
               <div className="widget widget_search">
-                <form method="get" className="searchform form-inline" action="./">
+                <form method="get" className="form-inline" action="/search">
                   <div className="form-group-wrap">
                     <div className="form-group margin_0">
                       <label className="sr-only" htmlFor="topline-search">Search for:</label>
-                      <input id="topline-search" type="text" name="search" className="form-control" placeholder="Search" />
+                      <input id="topline-search" type="text" name="q" className="form-control" placeholder="Search" />
                     </div>
                     <button type="submit" className="theme_button">Search</button>
                   </div>

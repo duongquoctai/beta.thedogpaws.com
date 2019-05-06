@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
 import wpapi from '../services/wpapi'
+
 import Main from '../src/components/Main'
 
 class Page extends React.Component {

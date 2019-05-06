@@ -11,14 +11,11 @@ const server  = express()
 const handler = routes.getRequestHandler(app)
 
 app.prepare().then(() => {
-  const port = process.env.PORT || 3000
+  const port = process.env.PORT || 8080
 
-  server.use('/wp-json',
-    proxy({
-      target: 'https://thedogpaws.com',
-      changeOrigin: true
-    })
-  )
+  server.get('*', (req, res) => {
+    return handler(req, res)
+  })
 
   server.use(handler)
     .listen(port, error => {

@@ -1,8 +1,9 @@
 import React from 'react'
-import Router from 'next/router'
 import { Link } from '../routes'
 import { connect } from 'react-redux'
+
 import wpapi from '../services/wpapi'
+
 import Main from '../src/components/Main'
 import Pagination from '../src/components/ui/Pagination'
 
@@ -19,7 +20,7 @@ class Index extends React.Component {
   }
 
   render () {
-    const { posts, totalPages } = this.props
+    const { posts } = this.props
 
     return(
       <div>
@@ -129,15 +130,18 @@ class Index extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="row topmargin_60">
-              <div className="col-sm-12 text-center">
-                <ul className="pagination highlightlinks">
-                  <li>
-                    <Pagination totalPages={ this.props.paging.totalPages } />
-                  </li>
-                </ul>
-              </div>
-            </div>
+            { this.props.paging === undefined
+              ? null
+              : <div className="row topmargin_60">
+                  <div className="col-sm-12 text-center">
+                    <ul className="pagination highlightlinks">
+                      <li>
+                        <Pagination totalPages={ this.props.paging.totalPages } />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            }
           </div>
         </section>
       </div>

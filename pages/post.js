@@ -1,9 +1,12 @@
 import React from 'react'
-import moment from 'moment'
 import { Link } from '../routes'
 import { connect } from 'react-redux'
-import wpapi from '../services/wpapi'
+
+import Moment from 'moment'
 import ReactDisqusComments from 'react-disqus-comments'
+
+import wpapi from '../services/wpapi'
+
 import Main from '../src/components/Main'
 
 class Post extends React.Component {
@@ -92,7 +95,7 @@ function Body(props) {
                             </h4>
                             <span className="entry-date highlight3 small-text">
                             <time className="entry-date" dateTime={ post.date }>
-                              { moment().from(post.date) }
+                              { Moment().from(post.date) }
                             </time>
                             </span>
                           </div>
@@ -104,10 +107,10 @@ function Body(props) {
               </div>
               <div className="widget widget_search">
                 <h3 className="widget-title poppins">Search on Website</h3>
-                <form method="get" className="searchform" action="./">
+                <form method="get" className="searchform" action="/search">
                   <div className="form-group">
                     <label className="sr-only" htmlFor="widget-search">Search for:</label>
-                    <input id="widget-search" type="text" name="search" className="form-control" placeholder="Search Keyword" />
+                    <input id="widget-search" type="text" name="q" className="form-control" placeholder="Search Keyword" />
                   </div>
                   <button type="submit" className="theme_button color1">Search</button>
                 </form>
