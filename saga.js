@@ -1,16 +1,16 @@
-import { all, call, delay, put, take, takeLatest } from 'redux-saga/effects'
-import es6promise from 'es6-promise'
-import 'isomorphic-unfetch'
+import { all, call, delay, put, take, takeLatest } from "redux-saga/effects"
+import es6promise from "es6-promise"
+import "isomorphic-unfetch"
 
-import { actionTypes } from './actions'
+import { actionTypes } from "./actions"
 
 es6promise.polyfill()
 
 function *loadLatestPosts(action) {
-  console.log('loadLatestPosts')
+  console.log("loadLatestPosts")
 
   const apiURL = action.isServer
-    ? 'https://thedogpaws.com/wp-json/wp/v2/posts?page=1&per_page=12' : '/wp-json/wp/v2/posts?page=1&per_page=12'
+    ? "https://thedogpaws.com/wp-json/wp/v2/posts?page=1&per_page=12" : "/wp-json/wp/v2/posts?page=1&per_page=12"
 
   try {
     const res = yield fetch(apiURL)
@@ -31,8 +31,6 @@ function *loadLatestPosts(action) {
 }
 
 function *loadSinglePost(action) {
-  console.log('loadSinglePost')
-
   const apiURL = action.isServer
     ? `https://thedogpaws.com/wp-json/wp/v2/posts?slug=${action.slug}` : `/wp-json/wp/v2/posts?slug=${action.slug}`
 

@@ -1,5 +1,7 @@
-import React from 'react'
-import { Link } from '../../routes'
+import React from "react"
+import { Link } from "../../routes"
+import config from "../../services/publicConfig"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 
 export default function Footer() {
   return (
@@ -11,7 +13,7 @@ export default function Footer() {
               <div className="widget">
                 <Link route="index">
                   <a className="logo bottommargin_20">
-                    <img src={require('../assets/images/logo.png')} alt="" />
+                    <LazyLoadImage alt="" src={ `${config.assetPrefix}/static/images/thedogpaws.net/logo.png` } />
                   </a>
                 </Link>
                 <p>
@@ -49,9 +51,9 @@ export default function Footer() {
                   </div>
                 </div>
                 <div className="darklinks topmargin_25">
-                  <a href="#" className="social-icon border-icon rounded-icon soc-facebook"  target="_blank" href="//www.facebook.com/thedogpawsdotcom/"></a>
-                  <a href="#" className="social-icon border-icon rounded-icon soc-instagram" target="_blank" href="//www.instagram.com/thedogpawsdotcom/"></a>
-                  <a href="#" className="social-icon border-icon rounded-icon soc-pinterest" target="_blank" href="//www.pinterest.com/thedogpawsdotcom/"></a>
+                  <a href="#" className="social-icon border-icon rounded-icon soc-facebook"  target="_blank" href="https://www.facebook.com/thedogpawsdotcom/"></a>
+                  <a href="#" className="social-icon border-icon rounded-icon soc-instagram" target="_blank" href="https://www.instagram.com/thedogpawsdotcom/"></a>
+                  <a href="#" className="social-icon border-icon rounded-icon soc-pinterest" target="_blank" href="https://www.pinterest.com/thedogpawsdotcom/"></a>
                 </div>
               </div>
             </div>

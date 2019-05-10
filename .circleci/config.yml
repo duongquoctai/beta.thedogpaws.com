@@ -29,10 +29,6 @@ jobs:
           name: Yarn Install
           command: yarn install
 
-      - run:
-          name: Yarn Build
-          command: yarn build
-
       - save_cache:
           key: beta.thedogpaws.com-{{ checksum "Gemfile.lock" }}
           paths:
@@ -78,7 +74,7 @@ jobs:
             - ~/beta.thedogpaws.com/vendor/bundle
 
       - run:
-          name: Deployment to Server
+          name: Deploy production
           command: bundle exec cap production deploy
 
 workflows:

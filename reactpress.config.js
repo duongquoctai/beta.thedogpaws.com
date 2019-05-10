@@ -1,9 +1,19 @@
+const isProd = process.env.NODE_ENV === "production"
+
 module.exports = {
   // used by ./services/wpapi to create api url
+  assetPrefix: isProd ? "https://alinguyen.r.worldssl.net" : "",
   wordpressApiUrl: "https://thedogpaws.com/wp-json",
   siteInformations: {
     name: "TheDogPaws.com",
-    slogan: ""
+    homePageTitle: "Homepage",
+    searchPageTitle: "SearchBox"
+  },
+  postsPerPage: {
+    homePage: 6,
+    searchPage: 9,
+    categoryPage: 9,
+    recentPosts: 3
   },
   mainMenuLinks: [
     {
@@ -29,12 +39,12 @@ module.exports = {
   ],
   subMenuLinks: [
     {
-      title: "About Us",
+      title: "About",
       slug:  "about-us",
       route: "/page/about-us"
     },
     {
-      title: "Contact Us",
+      title: "Contact",
       slug:  "contact-us",
       route: "/page/contact-us"
     },
@@ -43,10 +53,5 @@ module.exports = {
       slug:  "privacy-policy",
       route: "/page/privacy-policy"
     }
-  ],
-  ui: {
-    breakpoints: {
-      smallScreen: "@media (max-width: 1000px)"
-    }
-  }
+  ]
 }

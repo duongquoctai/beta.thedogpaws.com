@@ -1,13 +1,9 @@
-import React from 'react'
-import { Link } from '../routes'
-import { connect } from 'react-redux'
-
-import Moment from 'moment'
-import ReactDisqusComments from 'react-disqus-comments'
-
-import wpapi from '../services/wpapi'
-
-import Main from '../src/components/Main'
+import React from "react"
+import moment from "moment"
+import { Link } from "../routes"
+import wpapi from "../services/wpapi"
+import Layout from "../components/layouts/Layout"
+import ReactDisqusComments from "react-disqus-comments"
 
 class Post extends React.Component {
   static async getInitialProps ({ ctx }) {
@@ -20,23 +16,24 @@ class Post extends React.Component {
       .posts()
       .slug(ctx.query.slug)
 
-    return { recentPosts, post: posts[0] }
+    return { post: posts[0], recentPosts }
   }
 
   render () {
-    const { recentPosts, post } = this.props
+    const { post, recentPosts } = this.props
 
     return(
-      <Main
-        body={ Body({ recentPosts, post }) } />
+      <Layout
+        body={ Body({ post, recentPosts }) }
+        title={ post.title.rendered } />
     )
   }
 }
 
 function Body(props) {
-  const { post } = props
+  const { post, recentPosts } = props
 
-  return (
+  return(
     <div>
       <section className="page_breadcrumbs ds background_cover background_overlay section_padding_top_65 section_padding_bottom_65">
         <div className="container">
@@ -73,15 +70,15 @@ function Body(props) {
                   url={ post.link }
                   shortname="the-dog-paws"
                   identifier={ post.slug }
-                  title={ post.title.rendered.replace('&#8211;', '-') } />
+                  title={ post.title.rendered.replace("&#8211;", "-") } />
               </div>
             </div>
             <aside className="col-sm-5 col-md-4 col-lg-4">
               <div className="widget widget_recent_posts">
-                <h3 className="widget-title poppins">Recent Posts</h3>
+                <h3 className="widget-title poppins text-center">Recent Posts</h3>
                 <ul className="media-list">
                   {
-                    props.recentPosts.map( post => {
+                    recentPosts.map( post => {
                       return (
                         <li className="media" key={ post.id }>
                           <div className="media-left media-middle">
@@ -95,7 +92,7 @@ function Body(props) {
                             </h4>
                             <span className="entry-date highlight3 small-text">
                             <time className="entry-date" dateTime={ post.date }>
-                              { Moment().from(post.date) }
+                              { moment().from(post.date) }
                             </time>
                             </span>
                           </div>
@@ -106,7 +103,7 @@ function Body(props) {
                 </ul>
               </div>
               <div className="widget widget_search">
-                <h3 className="widget-title poppins">Search on Website</h3>
+                <h3 className="widget-title poppins text-center">Search on Website</h3>
                 <form method="get" className="searchform" action="/search">
                   <div className="form-group">
                     <label className="sr-only" htmlFor="widget-search">Search for:</label>
@@ -123,9 +120,4 @@ function Body(props) {
   )
 }
 
-const mapStateToProps = state => ({
-  post: state.post,
-  error: state.error
-})
-
-export default connect()(Post)
+export default Post

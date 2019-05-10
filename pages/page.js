@@ -1,9 +1,6 @@
-import React from 'react'
-import { connect } from 'react-redux'
-
-import wpapi from '../services/wpapi'
-
-import Main from '../src/components/Main'
+import React from "react"
+import wpapi from "../services/wpapi"
+import Layout from "../components/layouts/Layout"
 
 class Page extends React.Component {
   static async getInitialProps ({ ctx }) {
@@ -18,8 +15,9 @@ class Page extends React.Component {
     const { pageContent } = this.props
 
     return(
-      <Main
-        body={ Body({ pageContent }) } />
+      <Layout
+        body={ Body({ pageContent }) }
+        title={ pageContent.title.rendered } />
     )
   }
 }
@@ -27,7 +25,7 @@ class Page extends React.Component {
 function Body(props) {
   const { pageContent } = props
 
-  return (
+  return(
     <div>
       <section className="page_breadcrumbs ds background_cover background_overlay section_padding_top_65 section_padding_bottom_65">
         <div className="container">
@@ -60,4 +58,4 @@ function Body(props) {
   )
 }
 
-export default connect()(Page)
+export default Page
