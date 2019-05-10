@@ -41,7 +41,11 @@ const Pagination = ({ totalPages, router, ...rest }) => {
     <div className="row topmargin_60">
       <div className="col-sm-12 text-center">
         <ul className="pagination highlightlinks">
-          <li>
+          <li
+            className={classnames({
+              hide: currentPage == 1
+            })}
+          >
             <Link
               href={{
                 pathname: router.pathname,
@@ -51,36 +55,45 @@ const Pagination = ({ totalPages, router, ...rest }) => {
                 }
               }}
             >
-              <a>
+              <a className="no-changes">
                 <span className="sr-only">Prev</span>
                 <i className="fa fa-angle-left" aria-hidden="true"></i>
               </a>
             </Link>
           </li>
 
-          {numbers.map(number => (
-            <li 
-              className={classnames("number", {
-                active: number == currentPage
-              })}
-              key={number}
-            >
-              <Link
-                href={{
-                  pathname: router.pathname,
-                  query: {
-                    // keep previous url args
-                    ...router.query,
-                    page: number
-                  }
-                }}
+          {numbers
+            .filter(
+              (number, index) => (index < 5)
+            )
+            .map((number, index) => (
+              <li
+                className={classnames("number", {
+                  active: number == currentPage
+                })}
+                key={number}
               >
-                <a>{ number }</a>
-              </Link>
-            </li>
-          ))}
+                <Link
+                  href={{
+                    pathname: router.pathname,
+                    query: {
+                      // keep previous url args
+                      ...router.query,
+                      page: number
+                    }
+                  }}
+                >
+                  <a>{ number }</a>
+                </Link>
+              </li>
+            ))
+          }
 
-          <li>
+          <li
+            className={classnames({
+              hide: currentPage == totalPages
+            })}
+          >
             <Link
               href={{
                 pathname: router.pathname,
@@ -90,7 +103,7 @@ const Pagination = ({ totalPages, router, ...rest }) => {
                 }
               }}
             >
-              <a>
+              <a className="no-changes">
                 <span className="sr-only">Next</span>
                 <i className="fa fa-angle-right" aria-hidden="true"></i>
               </a>
