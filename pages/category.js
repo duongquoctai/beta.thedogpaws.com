@@ -5,6 +5,7 @@ import wpapi from "../services/wpapi"
 import config from "../services/publicConfig"
 import Layout from "../components/layouts/Layout"
 import Pagination from "../components/ui/Pagination"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 
 class Category extends React.Component {
   static async getInitialProps ({ ctx }) {
