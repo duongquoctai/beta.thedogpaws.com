@@ -4,7 +4,7 @@
   "license": "ISC",
   "scripts": {
     "build": "next build",
-    "dev":   "NODE_ENV=development HOST=0.0.0.0 PORT=8080 node server.js",
+    "dev": "NODE_ENV=development HOST=0.0.0.0 PORT=8080 node server.js",
     "start": "NODE_ENV=production  HOST=0.0.0.0 PORT=8080 node server.js"
   },
   "dependencies": {

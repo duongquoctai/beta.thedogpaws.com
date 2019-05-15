@@ -4,6 +4,7 @@ import { Link } from "../routes"
 import wpapi from "../services/wpapi"
 import Layout from "../components/layouts/Layout"
 import ReactDisqusComments from "react-disqus-comments"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 
 class Post extends React.Component {
   static async getInitialProps ({ ctx }) {
@@ -50,7 +51,7 @@ function Body(props) {
             <div className="col-sm-7 col-md-8 col-lg-8">
               <article className="single-post vertical-item content-padding big-padding post with_shadow rounded overflow-hidden">
                 <div className="entry-thumbnail item-media">
-                  <img src={ post.jetpack_featured_media_url } alt="" />
+                  <LazyLoadImage alt={ post.title.rendered } src={ post.jetpack_featured_media_url } />
                 </div>
                 <div className="item-content">
                   <header className="entry-header">
@@ -82,7 +83,7 @@ function Body(props) {
                       return (
                         <li className="media" key={ post.id }>
                           <div className="media-left media-middle">
-                            <img src={ post.jetpack_featured_media_url } alt="" />
+                            <LazyLoadImage alt={ post.title.rendered } src={ post.jetpack_featured_media_url } />
                           </div>
                           <div className="media-body media-middle">
                             <h4>

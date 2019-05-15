@@ -66,7 +66,7 @@ function Body(props) {
                   return (                   
                     <article key={ post.id } className="vertical-item content-padding big-padding post format-standard with_shadow rounded overflow-hidden">
                       <div className="item-media entry-thumbnail">
-                        <img src={ post.jetpack_featured_media_url } alt="" />
+                        <LazyLoadImage alt={ post.title.rendered } src={ post.jetpack_featured_media_url } />
                       </div>
                       <div className="item-content entry-content">
                         <header className="entry-header">
@@ -92,7 +92,7 @@ function Body(props) {
                       return (
                         <li className="media" key={ post.id }>
                           <div className="media-left media-middle">
-                            <img src={ post.jetpack_featured_media_url } alt="" />
+                            <LazyLoadImage alt={ post.title.rendered } src={ post.jetpack_featured_media_url } />
                           </div>
                           <div className="media-body media-middle">
                             <h4>

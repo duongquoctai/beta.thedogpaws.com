@@ -50,7 +50,7 @@ function Body(props) {
                         <div key={ post.id } className="isotope-item with_shadow rounded col-lg-4 col-md-6 col-sm-12">
                           <article className="vertical-item content-padding text-center rounded overflow-hidden">
                             <div className="item-media">
-                              <LazyLoadImage alt="" src={ post.jetpack_featured_media_url } />
+                              <LazyLoadImage alt={ post.title.rendered } src={ post.jetpack_featured_media_url } />
                             </div>
                             <div className="item-content">
                               <p className="text-center item-meta">
