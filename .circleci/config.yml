@@ -76,6 +76,8 @@ jobs:
       - run:
           name: Deploy staging
           command: bundle exec cap staging deploy
+
+      - run:
           name: Deploy production
           command: bundle exec cap production deploy
 
