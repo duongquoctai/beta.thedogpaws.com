@@ -34,7 +34,7 @@ jobs:
           paths:
             - ~/beta.thedogpaws.com/vendor/bundle
 
-  deploy_production:
+  deploy_staging:
     <<: *defaults
     steps:
       - checkout
@@ -77,6 +77,45 @@ jobs:
           name: Deploy staging
           command: bundle exec cap staging deploy
 
+  deploy_production:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/beta.thedogpaws.com
+
+      # Restore bundle cache
+      - restore_cache:
+          keys:
+          - beta.thedogpaws.com-{{ checksum "Gemfile.lock" }}
+          
+      - run:
+          name: Update Node.js and npm
+          command: |
+            curl -sSL "https://nodejs.org/dist/v8.15.0/node-v8.15.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v8.15.0-linux-x64/bin/node
+            curl https://www.npmjs.com/install.sh | sudo bash
+
+      - run:
+          name: Yarn Install
+          command: yarn install
+
+      - run:
+          name: Yarn Build
+          command: yarn build
+
+      - run:
+          name: Install Bundler
+          command: gem update --system && gem install bundler
+
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install --jobs=4 --retry=3 --path vendor/bundle
+      
+      - save_cache:
+          key: beta.thedogpaws.com-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ~/beta.thedogpaws.com/vendor/bundle
+
       - run:
           name: Deploy production
           command: bundle exec cap production deploy
@@ -86,6 +125,12 @@ workflows:
   build-and-deploy:
     jobs:
       - bundle_dependencies
+      - deploy_staging:
+          requires:
+            - bundle_dependencies
+          filters:
+            branches:
+              only: master
       - deploy_production:
           requires:
             - bundle_dependencies
