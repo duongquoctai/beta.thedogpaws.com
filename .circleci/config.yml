@@ -74,6 +74,8 @@ jobs:
             - ~/beta.thedogpaws.com/vendor/bundle
 
       - run:
+          name: Deploy staging
+          command: bundle exec cap staging deploy
           name: Deploy production
           command: bundle exec cap production deploy
 
