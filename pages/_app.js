@@ -5,22 +5,22 @@ import Router from "next/router"
 import { Provider } from "react-redux"
 import withRedux from "next-redux-wrapper"
 import withReduxSaga from "next-redux-saga"
-
-import createStore from "../store"
-
 import Header from "../components/layouts/Header"
 import Footer from "../components/layouts/Footer"
+import createStore from "../store"
 
 Router.events.on('routeChangeStart', url => {
   $(".preloader").fadeIn()
 })
 
 Router.events.on('routeChangeComplete', url => {
-  $(".preloader").fadeOut(); $('.mobile-active').removeClass('mobile-active');
+  $(".preloader").fadeOut()
+  $('.mobile-active').removeClass('mobile-active')
 })
 
 Router.events.on('routeChangeError', url => {
-  $(".preloader").fadeOut(); $('.mobile-active').removeClass('mobile-active');
+  $(".preloader").fadeOut()
+  $('.mobile-active').removeClass('mobile-active')
 })
 
 class MyApp extends App {

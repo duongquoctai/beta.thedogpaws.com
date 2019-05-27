@@ -9,19 +9,20 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html className="no-js">
+      <Html>
         <Head>
+          <link rel="stylesheet" href={ `${config.assetPrefix}/static/css/fonts.css` } />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
           <link rel="icon" type="image/x-icon" href={ `${config.assetPrefix}/static/images/thedogpaws.net/favicon.png` } />
         </Head>
         <body>
           <Main />
           <NextScript />
-          <script src={ `${config.assetPrefix}/static/js/jquery.js` } defer></script>
-          <script src={ `${config.assetPrefix}/static/js/jquery.ui.totop.js` } defer></script>
-          <script src={ `${config.assetPrefix}/static/js/bootstrap.js` } defer></script>
-          <script src={ `${config.assetPrefix}/static/js/modernizr.js` } defer></script>
-          <script src={ `${config.assetPrefix}/static/js/compressed.js` } defer></script>
-          <script src={ `${config.assetPrefix}/static/js/application.js` } defer></script>
+          <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" />
+          <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" />
+          <script defer src={ `${config.assetPrefix}/static/js/jquery.ui.totop.js` } />
+          <script defer src={ `${config.assetPrefix}/static/js/plugins.js` } />
+          <script defer src={ `${config.assetPrefix}/static/js/main.js` } />
         </body>
       </Html>
     )

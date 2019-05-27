@@ -1,6 +1,5 @@
 const next    = require("next")
 const express = require("express")
-const proxy   = require("http-proxy-middleware")
 const routes  = require("./routes")
 
 const app     = next({

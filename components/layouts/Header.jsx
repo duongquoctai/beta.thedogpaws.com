@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "../../routes"
-import { LazyLoadImage } from "react-lazy-load-image-component"
 import config from "../../services/publicConfig"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 
 export default function Header() {
   return (
@@ -41,7 +41,7 @@ export default function Header() {
           <div className="row">
             <div className="col-md-3 text-center text-md-left">
               <a href="/" className="logo top_logo">
-                <LazyLoadImage alt="" src={ `${config.assetPrefix}/static/images/thedogpaws.net/logo.png` } />
+                <img alt="" src={ `${config.assetPrefix}/static/images/thedogpaws.net/logo.png` } />
               </a>
             </div>
             <div className="col-md-9 text-center text-md-right">

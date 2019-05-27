@@ -26,7 +26,8 @@ class Post extends React.Component {
     return(
       <Layout
         body={ Body({ post, recentPosts }) }
-        title={ post.title.rendered } />
+        title={ post.title.rendered }
+        excerpt={ post.excerpt.rendered } />
     )
   }
 }

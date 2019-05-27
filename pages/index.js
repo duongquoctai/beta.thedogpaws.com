@@ -24,7 +24,8 @@ class Index extends React.Component {
     return(
       <Layout
         body={ Body({ posts }) }
-        title={ config.siteInformations.homePageTitle } />
+        title={ config.siteInformations.homePageTitle }
+        description={ config.siteInformations.homePageTitle } />
     )
   }
 }

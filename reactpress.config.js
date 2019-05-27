@@ -1,8 +1,9 @@
-const isProd = process.env.NODE_ENV === "production"
+// const isProd = process.env.NODE_ENV === "production"
+// assetPrefix: isProd ? "https://alinguyen.r.worldssl.net" : "",
 
 module.exports = {
   // used by ./services/wpapi to create api url
-  assetPrefix: isProd ? "https://alinguyen.r.worldssl.net" : "",
+  assetPrefix: "",
   wordpressApiUrl: "https://thedogpaws.com/wp-json",
   siteInformations: {
     name: "TheDogPaws.com",

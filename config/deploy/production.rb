@@ -2,7 +2,7 @@ set :stage,    :production
 set :node_env, :production
 set :branch,   :master
 
-server "159.89.135.236", port: "22", user: "deployer", roles: [:app], primary: true
+server "34.74.139.99", port: "22", user: "deployer", roles: [:app], primary: true
 
 # Change these
 set :repo_url,        "git@bitbucket.org:tanngoc93/beta.thedogpaws.com.git"
@@ -21,7 +21,7 @@ set :nvm_node,        "v8.15.0"
 set :nvm_custom_path, "/home/#{fetch(:user)}/.nvm/versions/node"
 set :default_env,     "PATH" => "/home/#{fetch(:user)}/.nvm/versions/node/v8.15.0/bin:$PATH"
 set :nvm_path,        "/home/#{fetch(:user)}/.nvm"
-set :nvm_map_bins,    %w[node npm yarn next]
+set :nvm_map_bins,    %w[yarn node next]
 
 # share node_modules folder
 set :linked_dirs,     %w[node_modules tmp/log tmp/pids]
@@ -35,7 +35,7 @@ namespace :passenger do
       end
 
       within current_path do
-        execute :passenger, "start --app-type node --environment production --port 8080 --log-file #{current_path}/tmp/log/passenger.8080.log --pid-file #{shared_path}/tmp/pids/passenger.8080.pid --startup-file server.js --daemonize --envvar NODE_TLS_REJECT_UNAUTHORIZED=0"
+        execute :passenger, "start --app-type node --environment production --port 8080 --log-file #{current_path}/tmp/log/passenger.8080.log --pid-file #{shared_path}/tmp/pids/passenger.8080.pid --startup-file #{current_path}/server.js --daemonize --envvar NODE_TLS_REJECT_UNAUTHORIZED=0"
       end
     end
   end

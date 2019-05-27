@@ -37,7 +37,8 @@ class Category extends React.Component {
     return(
       <Layout
         body={ Body({ category, posts, recentPosts, paging }) }
-        title={ category.name } />
+        title={ category.name }
+        description={ category.name } />
     )
   }
 }

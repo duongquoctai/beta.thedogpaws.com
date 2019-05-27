@@ -25,7 +25,9 @@ class Search extends React.Component {
     return(
       <Layout
         body={ Body({ posts, paging }) }
-        title={ config.siteInformations.searchPageTitle } />
+        title={ config.siteInformations.searchPageTitle }
+        description={ config.siteInformations.searchPageTitle } />
+
     )
   }
 }
