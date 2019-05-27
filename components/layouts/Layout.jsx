@@ -8,8 +8,7 @@ function Layout(props) {
 
   if ( process.browser ) {
     description =
-      props.excerpt
-        ?  $( props.excerpt ).text() : `${ setTitle(props.description) } - ${ config.siteInformations.name }`
+      props.excerpt ? $( props.excerpt ).text() : `${ setTitle(props.description) } - ${ config.siteInformations.name }`
   }
   
   return (
