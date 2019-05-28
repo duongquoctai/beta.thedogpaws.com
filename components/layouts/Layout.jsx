@@ -4,8 +4,8 @@ import config from "../../services/publicConfig"
 
 function Layout(props) {
   const description = props.excerpt
-    ? props.excerpt.replace(/<(?:.|\n)*?>/gm, "") : config.site.description
-  
+    ? props.excerpt.replace(/&hellip;/gi, "...").replace(/<(?:.|\n)*?>/gm, "") : config.site.description
+
   return (
     <div>
       <Head>
