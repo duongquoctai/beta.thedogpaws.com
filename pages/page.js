@@ -17,8 +17,7 @@ class Page extends React.Component {
     return(
       <Layout
         body={ Body({ pageContent }) }
-        title={ pageContent.title.rendered }
-        excerpt={ pageContent.excerpt.rendered } />
+        title={ pageContent.title.rendered } />
     )
   }
 }

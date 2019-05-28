@@ -9,18 +9,18 @@ import Header from "../components/layouts/Header"
 import Footer from "../components/layouts/Footer"
 import createStore from "../store"
 
-Router.events.on('routeChangeStart', url => {
+Router.events.on("routeChangeStart", url => {
   $(".preloader").fadeIn()
 })
 
-Router.events.on('routeChangeComplete', url => {
+Router.events.on("routeChangeComplete", url => {
   $(".preloader").fadeOut()
-  $('.mobile-active').removeClass('mobile-active')
+  $(".mobile-active").removeClass("mobile-active")
 })
 
-Router.events.on('routeChangeError', url => {
+Router.events.on("routeChangeError", url => {
   $(".preloader").fadeOut()
-  $('.mobile-active').removeClass('mobile-active')
+  $(".mobile-active").removeClass("mobile-active")
 })
 
 class MyApp extends App {

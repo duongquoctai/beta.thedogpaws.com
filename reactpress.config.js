@@ -5,10 +5,11 @@ module.exports = {
   // used by ./services/wpapi to create api url
   assetPrefix: "",
   wordpressApiUrl: "https://thedogpaws.com/wp-json",
-  siteInformations: {
+  site: {
     name: "TheDogPaws.com",
     homePageTitle: "Homepage",
-    searchPageTitle: "SearchBox"
+    searchPageTitle: "SearchBox",
+    description: "TheDogPaws.com aims to be one of the only dedicated dog news sources (news about dogs–not necessarily for dogs). This includes dogs in the media, news-worthy events, product recalls, celebrity dogs, and anything else in the news that involves dogs. We deploy a team of contributors with a wide array of backgrounds to provide expert insight (and a dose of fun) on current, in-depth content. Their backgrounds include veterinary science, dog training, pop culture journalism, journalistic research, essay writing, and biology. If you’d like to learn more about our team, please complete the form below."
   },
   postsPerPage: {
     homePage: 6,

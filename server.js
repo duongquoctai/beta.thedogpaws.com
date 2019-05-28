@@ -10,7 +10,7 @@ const server  = express()
 const handler = routes.getRequestHandler(app)
 
 app.prepare().then(() => {
-  const port = process.env.PORT || 8080
+  const port  = process.env.PORT || 8080
 
   server.use(handler)
     .listen(port, error => {

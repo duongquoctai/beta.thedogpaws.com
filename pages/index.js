@@ -24,8 +24,7 @@ class Index extends React.Component {
     return(
       <Layout
         body={ Body({ posts }) }
-        title={ config.siteInformations.homePageTitle }
-        description={ config.siteInformations.homePageTitle } />
+        title={ config.site.homePageTitle } />
     )
   }
 }
@@ -113,9 +112,15 @@ function Body(props) {
                     return (
                       <div key={ post.id } className="isotope-item with_shadow rounded col-lg-4 col-md-6 col-sm-12">
                         <article className="vertical-item content-padding text-center rounded overflow-hidden">
-                          <div className="item-media">
-                            <LazyLoadImage alt={ post.title.rendered } src={ post.jetpack_featured_media_url } />
-                          </div>
+                          <div className="item-media" />
+                          <style jsx>{`
+                            article.vertical-item .item-media {
+                              height: 230.6px;
+                              background-size: cover;
+                              background-repeat: no-repeat;
+                              background-image: url(${ post.jetpack_featured_media_url });
+                            }
+                          `}</style>
                           <div className="item-content">
                             <p className="text-center item-meta">
                               <span className="entry-date highlightlinks">
