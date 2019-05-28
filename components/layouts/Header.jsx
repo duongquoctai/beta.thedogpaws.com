@@ -45,7 +45,7 @@ export default function Header() {
               </a>
             </div>
             <div className="col-md-9 text-center text-md-right">
-              <div className="inline-teasers-wrap">
+              <div className="inline-teasers-wrap hidden-xs">
                 <div className="small-teaser text-left">
                   <p className="small-text grey margin_0">
                     Our Mailbox:
