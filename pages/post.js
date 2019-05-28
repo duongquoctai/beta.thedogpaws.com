@@ -1,5 +1,6 @@
 import React from "react"
 import moment from "moment"
+import Error from "next/error"
 import { Link } from "../routes"
 import wpapi from "../services/wpapi"
 import Layout from "../components/layouts/Layout"
@@ -23,10 +24,14 @@ class Post extends React.Component {
   render () {
     const { post, recentPosts } = this.props
 
+    if (post == undefined) {
+      return <Error statusCode="404" />
+    }
+
     return(
       <Layout
-        body={ Body({ post, recentPosts }) }
         title={ post.title.rendered }
+        body={ Body({ post, recentPosts }) }
         excerpt={ post.excerpt.rendered } />
     )
   }
