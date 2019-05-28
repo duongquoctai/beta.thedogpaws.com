@@ -113,14 +113,6 @@ function Body(props) {
                       <div key={ post.id } className="isotope-item with_shadow rounded col-lg-4 col-md-6 col-sm-12">
                         <article className="vertical-item content-padding text-center rounded overflow-hidden">
                           <div className="item-media" />
-                          <style jsx>{`
-                            article.vertical-item .item-media {
-                              height: 230.6px;
-                              background-size: cover;
-                              background-repeat: no-repeat;
-                              background-image: url(${ post.jetpack_featured_media_url });
-                            }
-                          `}</style>
                           <div className="item-content">
                             <p className="text-center item-meta">
                               <span className="entry-date highlightlinks">
@@ -138,6 +130,14 @@ function Body(props) {
                             </Link>
                           </div>
                         </article>
+                        <style jsx>{`
+                          article.vertical-item .item-media {
+                            height: 230.6px;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            background-image: url(${ post.jetpack_featured_media_url });
+                          }
+                        `}</style>
                       </div>
                     )
                   })
