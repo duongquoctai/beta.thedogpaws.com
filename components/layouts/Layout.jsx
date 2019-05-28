@@ -1,7 +1,6 @@
 import Head from "next/head"
 import { connect } from "react-redux"
 import config from "../../services/publicConfig"
-import "../../static/css/main.css"
 
 function Layout(props) {
   let description = ""

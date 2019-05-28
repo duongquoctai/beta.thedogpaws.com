@@ -8,6 +8,7 @@ import withReduxSaga from "next-redux-saga"
 import Header from "../components/layouts/Header"
 import Footer from "../components/layouts/Footer"
 import createStore from "../store"
+import "../static/css/main.css"
 
 Router.events.on("routeChangeStart", url => {
   $(".preloader").fadeIn()
@@ -48,7 +49,6 @@ class MyApp extends App {
             </div>
           </div>
         </Provider>
-
         <style jsx>{`
           .preloader {
             display: none;
