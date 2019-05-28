@@ -31,7 +31,7 @@ function Body(props) {
         <div className="container">
           <div className="row">
             <div className="col-sm-12 text-center">
-              <h2 className="highlight">Way to Be a Better Dog Owner</h2>
+              <h2 className="highlight text-uppercase">We need a dog!</h2>
             </div>
           </div>
         </div>
