@@ -30,8 +30,9 @@ class Post extends React.Component {
 
     return(
       <Layout
-        title={ post.title.rendered }
         body={ Body({ post, recentPosts }) }
+        title={ post.title.rendered }
+        image={ post.jetpack_featured_media_url }
         excerpt={ post.excerpt.rendered } />
     )
   }

@@ -3,19 +3,22 @@ import { connect } from "react-redux"
 import config from "../../services/publicConfig"
 
 function Layout(props) {
-  let description = ""
-
-  if (process.browser) {
-    description = props.excerpt ? $(props.excerpt).text() : config.site.description
-  }
+  const description = props.excerpt
+    ? props.excerpt.replace(/<(?:.|\n)*?>/gm, "") : config.site.description
   
   return (
     <div>
       <Head>
-        <meta name="description" content={ description }></meta>
         <title>{
           `${ setTitle(props.title) } - ${ config.site.name }`
         }</title>
+
+        <meta name="description" content={ description }></meta>
+        <meta property="og:url" content="" />
+        <meta property="og:title" content={ setTitle(props.title) } />
+        <meta property="og:description" content={ description } />
+        <meta property="og:image" content={ props.image } />
+        <meta property="og:type" content="article" />
       </Head>
 
       { props.body }
