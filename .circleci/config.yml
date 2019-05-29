@@ -34,7 +34,7 @@ jobs:
           paths:
             - ~/beta.thedogpaws.com/vendor/bundle
 
-  deploy_production:
+  deploy_staging:
     <<: *defaults
     steps:
       - checkout
@@ -74,15 +74,15 @@ jobs:
             - ~/beta.thedogpaws.com/vendor/bundle
 
       - run:
-          name: Deploy production
-          command: bundle exec cap production deploy
+          name: Deploy staging server
+          command: bundle exec cap staging deploy
 
 workflows:
   version: 2
   build-and-deploy:
     jobs:
       - bundle_dependencies
-      - deploy_production:
+      - deploy_staging:
           requires:
             - bundle_dependencies
           filters:

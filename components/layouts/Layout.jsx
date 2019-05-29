@@ -19,9 +19,9 @@ function Layout(props) {
         <meta name="description" content={ desc } />
 
         {/* Google / Search Engine Tags */}
-        <meta itemprop="description" content={ desc } />
-        <meta itemprop="name" content={ title } />
-        <meta itemprop="image" content={ img } />
+        <meta itemProp="description" content={ desc } />
+        <meta itemProp="name" content={ title } />
+        <meta itemProp="image" content={ img } />
 
         {/* Facebook Meta Tags */}
         <meta property="og:type" content="article" />
