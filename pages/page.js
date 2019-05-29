@@ -8,14 +8,15 @@ class Page extends React.Component {
       .pages()
       .slug(ctx.query.slug)
 
-    return { pageContent: pages[0] }
+    return { pageContent: pages[0], headers: ctx.asPath }
   }
 
   render () {
-    const { pageContent } = this.props
+    const { asPath, pageContent } = this.props
 
     return(
       <Layout
+        asPath={ asPath }
         body={ Body({ pageContent }) }
         title={ pageContent.title.rendered } />
     )

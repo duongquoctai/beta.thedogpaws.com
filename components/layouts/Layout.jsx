@@ -1,24 +1,26 @@
 import Head from "next/head"
 import { connect } from "react-redux"
+import { AllHtmlEntities } from "html-entities"
 import config from "../../services/publicConfig"
 
+const entities = new AllHtmlEntities()
+
 function Layout(props) {
-  const description = props.excerpt
-    ? props.excerpt.replace(/&hellip;/gi, "...").replace(/<(?:.|\n)*?>/gm, "") : config.site.description
+  const img = (props.image || '')
+  const url = `${config.site.domainName}${props.asPath || ''}`
+  const title = `${entitiesDecode(props.title)} - ${config.site.name}`
+  const description = props.excerpt ? entitiesDecode(props.excerpt) : config.site.description
 
   return (
     <div>
       <Head>
-        <title>{
-          `${ setTitle(props.title) } - ${ config.site.name }`
-        }</title>
-
+        <title>{ title }</title>
         <meta name="description" content={ description }></meta>
-        <meta property="og:url" content="" />
-        <meta property="og:title" content={ setTitle(props.title) } />
-        <meta property="og:description" content={ description } />
-        <meta property="og:image" content={ props.image } />
-        <meta property="og:type" content="article" />
+        <meta property="og:description" content={ description } ></meta>
+        <meta property="og:title" content={ title } ></meta>
+        <meta property="og:type" content="article" ></meta>
+        <meta property="og:image" content={ img } ></meta>
+        <meta property="og:url" content={ url } ></meta>
       </Head>
 
       { props.body }
@@ -26,9 +28,8 @@ function Layout(props) {
   )
 }
 
-const setTitle = (title) => {
-  return title
-    ? title.replace(/&#8211;/gi, "-").replace(/&amp;|&#038;/gi, "&") : "We Are Dog Lovers"
+const entitiesDecode = (string) => {
+  return string ? entities.decode(string.replace(/<(?:.|\n)*?>/gm, '')) : "We Are Dog Lovers!!!"
 }
 
 export default connect(state => state)(Layout)

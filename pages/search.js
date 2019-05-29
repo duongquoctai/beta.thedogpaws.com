@@ -16,14 +16,15 @@ class Search extends React.Component {
       .page(currentPage)
       .perPage(config.postsPerPage.searchPage)
 
-    return { posts, paging: posts._paging }
+    return { posts, asPath: ctx.asPath, paging: posts._paging }
   }
 
   render () {
-    const { posts, paging } = this.props
+    const { posts, asPath, paging } = this.props
 
     return(
       <Layout
+        asPath={ asPath }
         body={ Body({ posts, paging }) }
         title={ config.site.searchPageTitle } />
 

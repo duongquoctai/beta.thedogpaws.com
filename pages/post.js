@@ -18,11 +18,11 @@ class Post extends React.Component {
       .posts()
       .slug(ctx.query.slug)
 
-    return { post: posts[0], recentPosts }
+    return { post: posts[0], headers: ctx.asPath, recentPosts }
   }
 
   render () {
-    const { post, recentPosts } = this.props
+    const { post, asPath, recentPosts } = this.props
 
     if (post == undefined) {
       return <Error statusCode="404" />
@@ -30,8 +30,9 @@ class Post extends React.Component {
 
     return(
       <Layout
-        body={ Body({ post, recentPosts }) }
+        asPath={ asPath }
         title={ post.title.rendered }
+        body={ Body({ post, recentPosts }) }
         image={ post.jetpack_featured_media_url }
         excerpt={ post.excerpt.rendered } />
     )

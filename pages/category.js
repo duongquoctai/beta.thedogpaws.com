@@ -28,16 +28,17 @@ class Category extends React.Component {
       .page(currentPage)
       .perPage(config.postsPerPage.searchPage)
 
-    return { category, posts, recentPosts, paging: posts._paging };
+    return { category, posts, recentPosts, asPath: ctx.asPath, paging: posts._paging };
   }
 
   render () {
-    const { category, posts, recentPosts, paging } = this.props
+    const { category, posts, recentPosts, asPath, paging } = this.props
 
     return(
       <Layout
-        body={ Body({ category, posts, recentPosts, paging }) }
-        title={ category.name } />
+        asPath={ asPath }
+        title={ category.name }
+        body={ Body({ category, posts, recentPosts, paging }) } />
     )
   }
 }
