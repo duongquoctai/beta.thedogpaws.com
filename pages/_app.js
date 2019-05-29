@@ -30,16 +30,17 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps({ ctx })
     }
 
-    return { pageProps }
+    return { asPath: ctx.asPath, pageProps }
   }
 
   render () {
-    const { Component, pageProps, store } = this.props
+    const { Component, asPath, pageProps, store } = this.props
+
     return (
       <Container>
         <Provider store={ store }>
           <div>
-            <Header />
+            <Header asPath={ asPath } />
             <Component { ...pageProps } />
             <Footer />
             <div className="preloader">
