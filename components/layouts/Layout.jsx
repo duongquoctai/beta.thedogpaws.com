@@ -11,6 +11,8 @@ function Layout(props) {
   const title = `${entitiesDecode(props.title)} - ${config.site.name}`
   const description = props.excerpt ? entitiesDecode(props.excerpt) : config.site.description
 
+  console.log('props.asPath', props.asPath)
+
   return (
     <div>
       <Head>

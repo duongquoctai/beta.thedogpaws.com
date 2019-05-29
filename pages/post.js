@@ -18,7 +18,7 @@ class Post extends React.Component {
       .posts()
       .slug(ctx.query.slug)
 
-    return { post: posts[0], headers: ctx.asPath, recentPosts }
+    return { post: posts[0], asPath: ctx.asPath, recentPosts }
   }
 
   render () {

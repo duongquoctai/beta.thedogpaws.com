@@ -8,7 +8,7 @@ class Page extends React.Component {
       .pages()
       .slug(ctx.query.slug)
 
-    return { pageContent: pages[0], headers: ctx.asPath }
+    return { asPath: ctx.asPath, pageContent: pages[0] }
   }
 
   render () {

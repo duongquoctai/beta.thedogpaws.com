@@ -15,11 +15,11 @@ class Index extends React.Component {
       .page(currentPage)
       .perPage(config.postsPerPage.homePage)
 
-    return { headers: ctx.asPath, posts }
+    return { asPath: ctx.asPath, posts }
   }
 
   render () {
-    const { posts, asPath } = this.props
+    const { asPath, posts } = this.props
 
     return(
       <Layout

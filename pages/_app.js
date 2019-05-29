@@ -15,13 +15,11 @@ Router.events.on("routeChangeStart", url => {
 })
 
 Router.events.on("routeChangeComplete", url => {
-  $(".preloader").fadeOut()
-  $(".mobile-active").removeClass("mobile-active")
+  $(".preloader").fadeOut(); $(".mobile-active").removeClass("mobile-active")
 })
 
 Router.events.on("routeChangeError", url => {
-  $(".preloader").fadeOut()
-  $(".mobile-active").removeClass("mobile-active")
+  $(".preloader").fadeOut(); $(".mobile-active").removeClass("mobile-active")
 })
 
 class MyApp extends App {
