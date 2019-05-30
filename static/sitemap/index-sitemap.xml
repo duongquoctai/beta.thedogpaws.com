@@ -1,117 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://beta.thedogpaws.com/</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/page/about-us</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/page/contact-us</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/page/privacy-policy</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/category/nutrition</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/category/tips-and-care</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/category/reviews</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/best-dog-food-for-labs-with-skin-allergies</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/why-you-make-homemade-dog-food</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/how-to-get-a-puppy-to-drink-water-easily</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/foods-fatten-your-dog</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/11-reasons-coconut-oil-is-good</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/best-shampoo-for-puppies</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/can-dogs-eat-canned-salmon</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/best-low-protein-puppy-foods</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/benefits-of-having-a-dog</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/ear-mite-medication-for-dogs</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/eliminate-dog-poop-odor</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/deworming-newborn-puppies</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/best-chew-toys-for-lab-puppies</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://beta.thedogpaws.com/best-dog-training-collars</loc>
-  <lastmod>2019-05-28T09:02:50+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://beta.thedogpaws.com/</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/page/contact-us</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/page/privacy-policy</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/page/about-us</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/best-dog-food-for-labs-with-skin-allergies</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/category/tips-and-care</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/why-you-make-homemade-dog-food</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/category/reviews</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/category/nutrition</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/foods-fatten-your-dog</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/11-reasons-coconut-oil-is-good</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/best-shampoo-for-puppies</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/benefits-of-having-a-dog</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/can-dogs-eat-canned-salmon</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/how-to-get-a-puppy-to-drink-water-easily</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/ear-mite-medication-for-dogs</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/eliminate-dog-poop-odor</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/best-low-protein-puppy-foods</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/deworming-newborn-puppies</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/best-chew-toys-for-lab-puppies</loc>
+  </url>
+  <url>
+    <loc>https://beta.thedogpaws.com/best-dog-training-collars</loc>
+  </url>
 </urlset>

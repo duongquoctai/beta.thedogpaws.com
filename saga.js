@@ -7,8 +7,6 @@ import { actionTypes } from "./actions"
 es6promise.polyfill()
 
 function *loadLatestPosts(action) {
-  console.log("loadLatestPosts")
-
   const apiURL = action.isServer
     ? "https://thedogpaws.com/wp-json/wp/v2/posts?page=1&per_page=12" : "/wp-json/wp/v2/posts?page=1&per_page=12"
 
