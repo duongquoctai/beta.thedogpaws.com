@@ -1,10 +1,2 @@
 User-Agent: *
-
-Allow:    /wp-content/uploads/
-Disallow: /wp-content/plugins/
-Disallow: /wp-admin/
-Disallow: /readme.html
-Disallow: /refer/
- 
-Sitemap: http://thedogpaws.com/post-sitemap.xml
-Sitemap: http://thedogpaws.com/page-sitemap.xml
+Disallow: /
