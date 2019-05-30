@@ -1,6 +1,7 @@
-set :stage,    :staging
-set :node_env, :staging
-set :branch,   :master
+set :stage,     :staging
+set :branch,    :master
+set :node_env,  :staging
+set :node_port,  8080
 
 server "34.74.139.99", port: "22", user: "deployer", roles: [:app], primary: true
 
@@ -35,7 +36,15 @@ namespace :passenger do
       end
 
       within current_path do
-        execute :passenger, "start --app-type node --environment #{fetch(:node_env)} --port 8080 --log-file #{current_path}/tmp/log/passenger.8080.log --pid-file #{shared_path}/tmp/pids/passenger.8080.pid --startup-file #{current_path}/server.js --daemonize --envvar NODE_TLS_REJECT_UNAUTHORIZED=0"
+        execute :passenger, "
+          start
+            --app-type node
+            --port #{fetch(:node_port)}
+            --environment #{fetch(:node_env)}
+            --log-file #{current_path}/tmp/log/passenger.#{fetch(:node_port)}.log
+            --pid-file #{current_path}/tmp/pids/passenger.#{fetch(:node_port)}.pid
+            --daemonize --envvar NODE_TLS_REJECT_UNAUTHORIZED=0
+            --startup-file #{current_path}/server.js"
       end
     end
   end
@@ -59,8 +68,8 @@ namespace :passenger do
   task :stop do
     on roles(:app) do
       within current_path do
-        if test("[ -f #{current_path}/tmp/pids/passenger.8080.pid ]")
-          execute :passenger, "stop --pid-file #{current_path}/tmp/pids/passenger.8080.pid"
+        if test("[ -f #{current_path}/tmp/pids/passenger.#{fetch(:node_port)}.pid ]")
+          execute :passenger, "stop --pid-file #{current_path}/tmp/pids/passenger.#{fetch(:node_port)}.pid"
         end
       end
     end

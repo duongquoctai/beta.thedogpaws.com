@@ -6,6 +6,6 @@ lock "~> 3.11.0"
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 ## Defaults:
-set :keep_releases, 5
+set :keep_releases,  5
 set :log_level,     :debug
 set :format,        :pretty
