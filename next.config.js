@@ -24,11 +24,11 @@ const nextConfig = {
   }
 }
 
-module.exports = withComposePlugins(
-  [
-    withCSS,
-    withSass,
-    withReactPressPlugin
-  ],
-  nextConfig
-)
+module.exports =
+  withComposePlugins(
+    [
+      withCSS,
+      withSass,
+      withReactPressPlugin
+    ],
+  nextConfig)
