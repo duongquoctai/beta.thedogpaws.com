@@ -14,7 +14,7 @@ export default function Header(props) {
               <p className="divided-content greylinks">
                 {
                   config.subMenuLinks.map(link => (
-                    <Link key={ link.route } route={ link.route }>
+                    <Link key={ link.slug } route={ link.route }>
                       <a>{ link.title }</a>
                     </Link>
                   ))
@@ -78,7 +78,7 @@ export default function Header(props) {
                     {
                       config.mainMenuLinks.map(link => (
                         <li
-                          key={ link.route }
+                          key={ link.slug }
                           className={classnames({
                             active: props.asPath == link.route
                           })}
