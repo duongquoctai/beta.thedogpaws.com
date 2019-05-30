@@ -1,11 +1,10 @@
 import React from "react"
 import { Link } from "../../routes"
+import classnames from "classnames"
 import config from "../../services/publicConfig"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 
 export default function Header(props) {
-  const { asPath } = props
-
   return (
     <div>
       <section className="page_topline with_search ls ms section_padding_15 table_section">
@@ -78,7 +77,12 @@ export default function Header(props) {
                   <ul className="mainmenu nav sf-menu">
                     {
                       config.mainMenuLinks.map(link => (
-                        <li key={ link.route } className={ link.route == asPath ? "active" : null }>
+                        <li
+                          key={ link.route }
+                          className={classnames({
+                            active: props.asPath == link.route
+                          })}
+                        >
                           <Link route={ link.route }>
                             <a className="text-uppercase">{ link.title }</a>
                           </Link>
