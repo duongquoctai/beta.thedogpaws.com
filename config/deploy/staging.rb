@@ -36,15 +36,7 @@ namespace :passenger do
       end
 
       within current_path do
-        execute :passenger, "
-          start
-            --app-type node
-            --port #{fetch(:node_port)}
-            --environment #{fetch(:node_env)}
-            --log-file #{current_path}/tmp/log/passenger.#{fetch(:node_port)}.log
-            --pid-file #{current_path}/tmp/pids/passenger.#{fetch(:node_port)}.pid
-            --daemonize --envvar NODE_TLS_REJECT_UNAUTHORIZED=0
-            --startup-file #{current_path}/server.js"
+        execute :passenger, "start --app-type node --environment #{fetch(:node_env)} --log-file #{current_path}/tmp/log/passenger.#{fetch(:node_port)}.log --pid-file #{current_path}/tmp/pids/passenger.#{fetch(:node_port)}.pid --startup-file #{current_path}/server.js --port #{fetch(:node_port)} --daemonize --envvar NODE_TLS_REJECT_UNAUTHORIZED=0"
       end
     end
   end
