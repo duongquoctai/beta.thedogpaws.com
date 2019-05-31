@@ -35,6 +35,59 @@ function Body(props) {
 
   return(
     <div>
+      <section className="ls page_portfolio section_padding_top_100 section_padding_bottom_75">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12 text-center">
+              <h2 className="section_header with_icon icon_color3">
+                From Our Blog
+              </h2>
+              <p className="small-text">Our latest news</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="isotope_container isotope row masonry-layout columns_margin_bottom_20">
+                {
+                  posts.map( post => {
+                    return (
+                      <div key={ post.id } className="isotope-item with_shadow rounded col-lg-4 col-md-6 col-sm-12">
+                        <article className="vertical-item content-padding text-center rounded overflow-hidden">
+                          <div className="item-media" />
+                          <div className="item-content">
+                            <p className="text-center item-meta">
+                              <span className="entry-date highlightlinks">
+                              <a href="blog-right.html" rel="bookmark">
+                              </a>
+                              </span>
+                            </p>
+                            <h4 className="entry-title">
+                              <Link route="post" params={{ slug: post.slug }}>
+                                <a dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                              </Link>
+                            </h4>
+                            <Link route="post" params={{ slug: post.slug }}>
+                              <a className="read-more"></a>
+                            </Link>
+                          </div>
+                        </article>
+                        <style jsx>{`
+                          article.vertical-item .item-media {
+                            height: 230.6px;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            background-image: url(${ post.jetpack_featured_media_url });
+                          }
+                        `}</style>
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="services" className="ls ms section_padding_top_100 section_padding_bottom_100">
         <div className="container">
           <div className="row">
@@ -91,59 +144,6 @@ function Body(props) {
               <Link route="page" params={{ slug: "about-us" }}>
                 <a className="theme_button color4 wide_button">About Us</a>
               </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="ls page_portfolio section_padding_top_100 section_padding_bottom_75">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12 text-center">
-              <h2 className="section_header with_icon icon_color3">
-                From Our Blog
-              </h2>
-              <p className="small-text">Our latest news</p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-12">
-              <div className="isotope_container isotope row masonry-layout columns_margin_bottom_20">
-                {
-                  posts.map( post => {
-                    return (
-                      <div key={ post.id } className="isotope-item with_shadow rounded col-lg-4 col-md-6 col-sm-12">
-                        <article className="vertical-item content-padding text-center rounded overflow-hidden">
-                          <div className="item-media" />
-                          <div className="item-content">
-                            <p className="text-center item-meta">
-                              <span className="entry-date highlightlinks">
-                              <a href="blog-right.html" rel="bookmark">
-                              </a>
-                              </span>
-                            </p>
-                            <h4 className="entry-title">
-                              <Link route="post" params={{ slug: post.slug }}>
-                                <a dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                              </Link>
-                            </h4>
-                            <Link route="post" params={{ slug: post.slug }}>
-                              <a className="read-more"></a>
-                            </Link>
-                          </div>
-                        </article>
-                        <style jsx>{`
-                          article.vertical-item .item-media {
-                            height: 230.6px;
-                            background-size: cover;
-                            background-repeat: no-repeat;
-                            background-image: url(${ post.jetpack_featured_media_url });
-                          }
-                        `}</style>
-                      </div>
-                    )
-                  })
-                }
-              </div>
             </div>
           </div>
         </div>
