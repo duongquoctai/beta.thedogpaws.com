@@ -1,4 +1,5 @@
 import React from "react"
+import Head from "next/head"
 import { Link } from "../routes"
 import wpapi from "../services/wpapi"
 import config from "../services/publicConfig"
@@ -35,6 +36,92 @@ function Body(props) {
 
   return(
     <div>
+      <section className="intro_section page_mainslider ls ms">
+        <div className="flexslider">
+          <ul className="slides">
+            <li>
+              <LazyLoadImage alt="" src={ `${config.assetPrefix}/static/images/slide01.jpg` } />
+              <div className="container">
+                <div className="row">
+                  <div className="col-sm-12">
+                    <div className="slide_description_wrapper">
+                      <div className="slide_description">
+                        <div className="intro-layer" data-animation="fadeInUp">
+                          <h2>
+                            Every Pet Deserves
+                            <strong>Celebrity Care</strong>
+                          </h2>
+                        </div>
+                        <div className="intro-layer" data-animation="fadeInUp">
+                          <p>Strip steak short ribs picanha shoulder bresaola. Pork belly brisket shankle short loin.</p>
+                        </div>
+                        <div className="intro-layer" data-animation="fadeInUp">
+                          <a href="about.html" className="theme_button color3">Make an Appointment</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <LazyLoadImage alt="" src={ `${config.assetPrefix}/static/images/slide02.jpg` } />
+              <div className="container">
+                <div className="row">
+                  <div className="col-sm-12">
+                    <div className="slide_description_wrapper">
+                      <div className="slide_description">
+                        <div className="intro-layer" data-animation="fadeInUp">
+                          <h2>
+                            Qualified Personal
+                            <strong>Care For Your Pets</strong>
+                          </h2>
+                        </div>
+                        <div className="intro-layer" data-animation="fadeInUp">
+                          <p>Strip steak short ribs picanha shoulder bresaola. Pork belly brisket shankle short loin.</p>
+                        </div>
+                        <div className="intro-layer" data-animation="fadeInUp">
+                          <a href="about.html" className="theme_button color3">Make an Appointment</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <LazyLoadImage alt="" src={ `${config.assetPrefix}/static/images/slide03.jpg` } />
+              <div className="container">
+                <div className="row">
+                  <div className="col-sm-12">
+                    <div className="slide_description_wrapper">
+                      <div className="slide_description">
+                        <div className="intro-layer" data-animation="fadeInUp">
+                          <h2>
+                            Every Pet Deserves
+                            <strong>Celebrity Care</strong>
+                          </h2>
+                        </div>
+                        <div className="intro-layer" data-animation="fadeInUp">
+                          <p>Strip steak short ribs picanha shoulder bresaola. Pork belly brisket shankle short loin.</p>
+                        </div>
+                        <div className="intro-layer" data-animation="fadeInUp">
+                          <a href="about.html" className="theme_button color3">Make an Appointment</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div className="scroll_button_wrap">
+          <a href="#about" className="scroll_button">
+          <span className="sr-only">scroll down</span>
+          </a>
+        </div>
+      </section>
       <section className="ls page_portfolio section_padding_top_100 section_padding_bottom_75">
         <div className="container">
           <div className="row">

@@ -3,9 +3,14 @@ import moment from "moment"
 import Error from "next/error"
 import { Link } from "../routes"
 import wpapi from "../services/wpapi"
+import config from "../services/publicConfig"
 import Layout from "../components/layouts/Layout"
 import ReactDisqusComments from "react-disqus-comments"
 import { LazyLoadImage } from "react-lazy-load-image-component"
+import { FacebookIcon, FacebookShareButton,
+         TwitterIcon, TwitterShareButton,
+         PinterestIcon, PinterestShareButton,
+         WhatsappIcon, WhatsappShareButton } from "react-share"
 
 class Post extends React.Component {
   static async getInitialProps ({ ctx }) {
@@ -32,7 +37,7 @@ class Post extends React.Component {
       <Layout
         asPath={ asPath }
         title={ post.title.rendered }
-        body={ Body({ post, recentPosts }) }
+        body={ Body({ post, asPath, recentPosts }) }
         image={ post.jetpack_featured_media_url }
         excerpt={ post.excerpt.rendered } />
     )
@@ -40,7 +45,7 @@ class Post extends React.Component {
 }
 
 function Body(props) {
-  const { post, recentPosts } = props
+  const { post, asPath, recentPosts } = props
 
   return(
     <div>
@@ -66,12 +71,61 @@ function Body(props) {
                     <h1
                       className="entry-title topmargin_0"
                       dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                    />
+                    />                    
                   </header>
                   <div
                     className="entry-content"
                     dangerouslySetInnerHTML={{ __html: post.content.rendered }}
                   />
+                  <h3>
+                    <span className="social-sharing-title">Share to Your Friends</span>
+                  </h3>
+                  <ul className="social-sharing-feature">
+                    <li>
+                      <FacebookShareButton
+                        url={`
+                          ${config.site.domainName}${asPath || ''}
+                        `}
+                        className="social-sharing-btn"
+                      >
+                        <FacebookIcon
+                          size={40} />
+                      </FacebookShareButton>
+                    </li>
+                    <li>
+                      <TwitterShareButton 
+                        url={`
+                          ${config.site.domainName}${asPath || ''}
+                        `}
+                        className="social-sharing-btn"
+                      >
+                        <TwitterIcon
+                          size={40} />
+                      </TwitterShareButton>
+                    </li>
+                    <li>
+                      <PinterestShareButton 
+                        url={`
+                          ${config.site.domainName}${asPath || ''}
+                        `}
+                        className="social-sharing-btn"
+                      >
+                        <PinterestIcon
+                          size={40} />
+                      </PinterestShareButton>
+                    </li>
+                    <li>
+                      <WhatsappShareButton 
+                        url={`
+                          ${config.site.domainName}${asPath || ''}
+                        `}
+                        className="social-sharing-btn"
+                      >
+                        <WhatsappIcon
+                          size={40} />
+                      </WhatsappShareButton>
+                    </li>
+                  </ul>
                 </div>
               </article>
               <div className="with_padding big-padding with_shadow rounded comments-wrapper">
@@ -125,6 +179,21 @@ function Body(props) {
           </div>
         </div>
       </section>
+      <style jsx>{`
+        span.social-sharing-title {
+          font-family: georgia, palatino, serif;
+        }
+        ul.social-sharing-feature {
+          padding: 0;
+          display: flex;
+          flex-direction: row;
+          padding-bottom: 5px;
+          list-style:none;
+        }
+        ul.social-sharing-feature > li {
+          margin-right: 10px;
+        }
+      `}</style>
     </div>
   )
 }

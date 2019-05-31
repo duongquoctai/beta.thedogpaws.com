@@ -44,6 +44,7 @@ class MyDocument extends Document {
           <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" />
           <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" />
           <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" />
+          <script defer src={ `${config.assetPrefix}/static/js/jquery.flexslider.min.js` } />
           <script defer src={ `${config.assetPrefix}/static/js/jquery.ui.totop.js` } />
           <script defer src={ `${config.assetPrefix}/static/js/plugins.js` } />
           <script defer src={ `${config.assetPrefix}/static/js/main.js` } />
