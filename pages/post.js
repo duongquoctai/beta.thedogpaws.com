@@ -83,46 +83,37 @@ function Body(props) {
                   <ul className="social-sharing-feature">
                     <li>
                       <FacebookShareButton
-                        url={`
-                          ${config.site.domainName}${asPath || ''}
-                        `}
-                        className="social-sharing-btn"
+                        url={ `${config.site.domainName}${asPath || ''}` }
                       >
                         <FacebookIcon
-                          size={40} />
+                          size={35} round />
                       </FacebookShareButton>
                     </li>
                     <li>
-                      <TwitterShareButton 
-                        url={`
-                          ${config.site.domainName}${asPath || ''}
-                        `}
-                        className="social-sharing-btn"
+                      <TwitterShareButton
+                        title={ post.title.rendered }
+                        url={ `${config.site.domainName}${asPath || ''}` }
                       >
                         <TwitterIcon
-                          size={40} />
+                          size={35} round />
                       </TwitterShareButton>
                     </li>
                     <li>
                       <PinterestShareButton 
-                        url={`
-                          ${config.site.domainName}${asPath || ''}
-                        `}
-                        className="social-sharing-btn"
+                        media={ post.jetpack_featured_media_url }
+                        url={ `${config.site.domainName}${asPath || ''}` }
                       >
                         <PinterestIcon
-                          size={40} />
+                          size={35} round />
                       </PinterestShareButton>
                     </li>
                     <li>
-                      <WhatsappShareButton 
-                        url={`
-                          ${config.site.domainName}${asPath || ''}
-                        `}
-                        className="social-sharing-btn"
+                      <WhatsappShareButton
+                        title={ post.title.rendered }
+                        url={ `${config.site.domainName}${asPath || ''}` }
                       >
                         <WhatsappIcon
-                          size={40} />
+                          size={35} round />
                       </WhatsappShareButton>
                     </li>
                   </ul>
@@ -191,7 +182,7 @@ function Body(props) {
           list-style:none;
         }
         ul.social-sharing-feature > li {
-          margin-right: 10px;
+          margin-right: 2.5px;
         }
       `}</style>
     </div>
