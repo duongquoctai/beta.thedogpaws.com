@@ -40,7 +40,7 @@ function Body(props) {
         <div className="flexslider">
           <ul className="slides">
             <li>
-              <LazyLoadImage alt="" src={ `${config.assetPrefix}/static/images/slide01.jpg` } />
+              <img alt="" src={ `${config.assetPrefix}/static/images/slide01.jpg` } />
               <div className="container">
                 <div className="row">
                   <div className="col-sm-12">
@@ -65,7 +65,7 @@ function Body(props) {
               </div>
             </li>
             <li>
-              <LazyLoadImage alt="" src={ `${config.assetPrefix}/static/images/slide02.jpg` } />
+              <img alt="" src={ `${config.assetPrefix}/static/images/slide02.jpg` } />
               <div className="container">
                 <div className="row">
                   <div className="col-sm-12">
@@ -75,31 +75,6 @@ function Body(props) {
                           <h2>
                             Qualified Personal
                             <strong>Care For Your Pets</strong>
-                          </h2>
-                        </div>
-                        <div className="intro-layer" data-animation="fadeInUp">
-                          <p>Strip steak short ribs picanha shoulder bresaola. Pork belly brisket shankle short loin.</p>
-                        </div>
-                        <div className="intro-layer" data-animation="fadeInUp">
-                          <a href="about.html" className="theme_button color3">Make an Appointment</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <LazyLoadImage alt="" src={ `${config.assetPrefix}/static/images/slide03.jpg` } />
-              <div className="container">
-                <div className="row">
-                  <div className="col-sm-12">
-                    <div className="slide_description_wrapper">
-                      <div className="slide_description">
-                        <div className="intro-layer" data-animation="fadeInUp">
-                          <h2>
-                            Every Pet Deserves
-                            <strong>Celebrity Care</strong>
                           </h2>
                         </div>
                         <div className="intro-layer" data-animation="fadeInUp">
@@ -142,12 +117,6 @@ function Body(props) {
                         <article className="vertical-item content-padding text-center rounded overflow-hidden">
                           <div className="item-media" />
                           <div className="item-content">
-                            <p className="text-center item-meta">
-                              <span className="entry-date highlightlinks">
-                              <a href="blog-right.html" rel="bookmark">
-                              </a>
-                              </span>
-                            </p>
                             <h4 className="entry-title">
                               <Link route="post" params={{ slug: post.slug }}>
                                 <a dangerouslySetInnerHTML={{ __html: post.title.rendered }} />

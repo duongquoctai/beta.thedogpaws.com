@@ -53,12 +53,6 @@ function Body(props) {
                           <article className="vertical-item content-padding text-center rounded overflow-hidden">
                             <div className="item-media" />
                             <div className="item-content">
-                              <p className="text-center item-meta">
-                                <span className="entry-date highlightlinks">
-                                <a href="blog-right.html" rel="bookmark">
-                                </a>
-                                </span>
-                              </p>
                               <h4 className="entry-title">
                                 <Link route="post" params={{ slug: post.slug }}>
                                   <a dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
