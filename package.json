@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "license": "ISC",
   "scripts": {
-    "build": "next build",
+    "build": " next build ",
     "dev": "NODE_ENV=development HOST=0.0.0.0 PORT=8080 node server.js",
     "start": "NODE_ENV=production  HOST=0.0.0.0 PORT=8080 node server.js"
   },
